@@ -12,5 +12,4 @@
 - tester les données dans les scripts avant de valider(commit)
 
 ## Affichage
-- Limiter l'utilisation de JS si possible car certains naviguateurs ne prend pas en compte JS
-- 
+- Limiter l'utilisation de JS autant que possible car certains naviguateurs ne prend pas en compte JS
