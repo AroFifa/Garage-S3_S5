@@ -5,10 +5,10 @@
 	<title></title>
 	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
 	<meta name="created" content="2023-01-11T20:01:45.771087591"/>
-	<meta name="changed" content="2023-01-11T20:21:54.404485195"/>
+	<meta name="changed" content="2023-01-11T22:08:44.417046390"/>
 	<style type="text/css">
 		@page { size: 8.5in 11in; margin: 0.79in }
-		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent; background: transparent }
 		a:link { color: #000080; so-language: zxx; text-decoration: underline }
 		a:visited { color: #800000; so-language: zxx; text-decoration: underline }
 	</style>
@@ -28,15 +28,14 @@ Tables</span></b></font></font></font></p>
 Genre</span></font></font></font></p>
 <ul>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent"> <font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">id:
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">id:
 	pk </span></font></font></font>
 	</p>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent"> <font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">nom:
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">nom:
 	unique (not null)</span></font></font></font></p>
 </ul>
-<p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-<br/>
+<p style="line-height: 0.2in; margin-bottom: 0in"><br/>
 
 </p>
 <p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
@@ -44,14 +43,13 @@ Genre</span></font></font></font></p>
 NiveauEtude</span></font></font></font></p>
 <ul>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent"> <font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">id:
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">id:
 	pk</span></font></font></font></p>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent"> <font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">nom:
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">nom:
 	unique (not null)</span></font></font></font></p>
 </ul>
-<p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-<br/>
+<p style="line-height: 0.2in; margin-bottom: 0in"><br/>
 
 </p>
 <p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
@@ -59,31 +57,30 @@ NiveauEtude</span></font></font></font></p>
 Employe</span></font></font></font></p>
 <ul>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent"> <font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">id:
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">id:
 	pk</span></font></font></font></p>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent">
-	<font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">matricule:
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">matricule:
 	unique (not null) ; default(‘#emp’||nextval(‘seq_matricule’))</span></font></font></font></p>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent"> <font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">nom</span></font></font></font></p>
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">nom</span></font></font></font></p>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent"> <font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">prenom</span></font></font></font></p>
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">prenom</span></font></font></font></p>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent">
-	<font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">dateNaissance:
-	contrainte-&gt;CHECK (dateNaissance &lt; CURRENT_DATE - INTERVAL '18
-	years') (not null)</span></font></font></font></p>
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">dateNaissance:
+	 CHECK (dateNaissance &lt; CURRENT_DATE - INTERVAL '18 years') (not
+	null)</span></font></font></font></p>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent">
-	<font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">idgenre:
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">idgenre:
 	fk(Genre.id)</span></font></font></font></p>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
 	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">idniveauEtude:
 	fk(NiveauEtude.id)</span></font></font></font></p>
+	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">dateEmbauche:
+	(not null) ; default CURRENT_DATE</span></font></font></font></p>
 </ul>
-<p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-<br/>
+<p style="line-height: 0.2in; margin-bottom: 0in"><br/>
 
 </p>
 <p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
@@ -91,17 +88,15 @@ Employe</span></font></font></font></p>
 Specialite</span></font></font></font></p>
 <ul>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent"> <font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">id:
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">id:
 	pk</span></font></font></font></p>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent"> <font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">nom:
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">nom:
 	unique (not null)</span></font></font></font></p>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent">
-	<font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">description</span></font></font></font></p>
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">description</span></font></font></font></p>
 </ul>
-<p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-<br/>
+<p style="line-height: 0.2in; margin-bottom: 0in"><br/>
 
 </p>
 <p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
@@ -109,12 +104,10 @@ Specialite</span></font></font></font></p>
 SpecialiteEmploye</span></font></font></font></p>
 <ul>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent">
-	<font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">idemploye:
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">idemploye:
 	fk(Employe.id)</span></font></font></font></p>
 	<li><p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-	<font color="#000000"><span style="background: transparent">
-	<font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt">idspecialite:
+	<font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">idspecialite:
 	fk(Specialite.id)</span></font></font></font></p>
 </ul>
 <p style="line-height: 0.2in; margin-bottom: 0in"><br/>
@@ -125,8 +118,7 @@ View</span></b></font></font></font></p>
 <p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
 <font color="#000000"><font face="Droid Sans Mono, monospace, monospace"><font size="2" style="font-size: 10pt"><span style="background: transparent">-
 Specialite + SpecialiteEmploye on idemploye: v_specialite_employe</span></font></font></font></p>
-<p style="font-weight: normal; line-height: 0.2in; margin-bottom: 0in">
-<br/>
+<p style="line-height: 0.2in; margin-bottom: 0in"><br/>
 
 </p>
 <p style="line-height: 0.2in; margin-bottom: 0in"><br/>
