@@ -8,31 +8,17 @@ create table NiveauEtude(
     nom varchar(20) unique not null,
     primary key(id)
 );
-insert into NiveauEtude values(1,'Bacc');
-insert into NiveauEtude values(2,'License');
-insert into NiveauEtude values(3,'Master 1');
-insert into NiveauEtude values(4,'Master 2');
-insert into NiveauEtude values(5,'Doctorat');
-
 create table Specialite(
     id serial,
     nom varchar(20) unique not null,
     description varchar(200),
     primary key(id)
 );
-insert into Specialite values(1,'mecanique','reparation et entretien des moteurs');
-insert into Specialite values(2,'peinture','revetement des surfaces  metalliques');
-insert into Specialite values(3,'electronique','diagnostics et reparations electroniques');
-insert into Specialite values(4,'carrosserie','reparation des dommages de carrosseriey');
-
 create table Genre(
     id serial,
     nom varchar(20) unique not null,
     primary key(id)
 );
-
-insert into Genre values(1,'Homme');
-insert into Genre values(2,'Femme');
 
 create table employe(
   id serial primary key,
@@ -41,20 +27,88 @@ create table employe(
   prenom varchar(50),
   dateNaissance date CHECK (dateNaissance < CURRENT_DATE - INTERVAL '18 years') not null,
   idNiveauEtude integer references NiveauEtude(id),
-  idGenre integer references Genre(id)
+  idGenre integer references Genre(id) not null
 
 );
-insert into employe values(1,'','Aro','Roa',2000-02-15,2,3);
-insert into employe values(2,'','Anja','Ajna',2000-04-25,1,2);
-insert into employe values(3,'','Yohan','Nahoy',2000-12-06,3,3);
-insert into employe values(4,'','Ravo','Rova',2000-05-09,1,1);
-
-
-
 
 create table SpecialiteEmploye(
-  idEmploye integer references Employe(id),
-  idSpecialite integer references Specialite(id)
+  idEmploye integer references Employe(id) not null,
+  idSpecialite integer references Specialite(id) not null
 
 );
 
+CREATE TABLE Responsable(
+  id serial primary key,
+  idemploye integer REFERENCES employe(id) not null,
+  email varchar(200) unique not null,
+  motDePasse varchar(200) not null
+);
+
+CREATE TABLE CategorieService(
+  id serial primary key,
+  nom varchar(80) unique not null
+);
+
+CREATE TABLE Service(
+  id serial primary key,
+  idcategorieService integer REFERENCES CategorieService(id) not null,
+  nom varchar(150) not null
+
+);
+
+-- duree en heure
+CREATE TABLE AffectationService(
+  id serial primary key,
+  idemploye integer REFERENCES employe(id) not null,
+  idSpecialite integer REFERENCES Specialite(id) not null,
+  idService integer REFERENCES Service(id) not null,
+  duree smallint not null check(duree>0)
+
+);
+
+-- salaire horaire
+CREATE TABLE Salaire (
+  id serial primary key,
+  idSpecialite integer REFERENCES Specialite(id) not null,
+  montant double precision not null default 0 check(montant>=0)
+);
+
+CREATE TABLE CategorieClient(
+  id serial primary key,
+  nom varchar(80) unique not null
+);
+
+
+create sequence seq_clientkey minvalue 1;
+CREATE TABLE Client (
+  id serial primary key,
+  clientkey varchar(20) unique not null default('#cl'||nextval('seq_clientkey')),
+  nom varchar(80) not null,
+  idcategorieClient integer REFERENCES CategorieClient(id) not null
+);
+
+CREATE TABLE MargeBeneficiaire(
+  id serial primary key,
+  marge smallint not null check(marge>=0 and marge<=100),
+  dateModification date not null default current_date 
+);
+
+
+CREATE TABLE Unite(
+  id serial primary key,
+  nom varchar(80) unique not null
+);
+
+CREATE TABLE Materiel (
+  id serial primary key,
+  nom varchar(80) unique not null,
+  prixUnitaire double precision not null check(prixUnitaire>0),
+  idunite integer REFERENCES Unite(id) not null
+);
+
+CREATE TABLE MaterielUtilise (
+  id serial primary key,
+  idservice integer REFERENCES Service(id) not null,
+  idmateriel integer REFERENCES Materiel(id) not null,
+  quantite smallint default 1 check(quantite>0)
+);
