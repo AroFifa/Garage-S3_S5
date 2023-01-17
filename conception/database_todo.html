@@ -4,8 +4,8 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<title></title>
 	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
-	<meta name="created" content="2023-01-13T21:26:58.293883958"/>
-	<meta name="changed" content="2023-01-13T21:27:33.808562862"/>
+	<meta name="created" content="2023-01-17T16:00:40.041415322"/>
+	<meta name="changed" content="2023-01-17T16:17:48.197671131"/>
 	<style type="text/css">
 		@page { size: 8.5in 11in; margin: 0.79in }
 		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
@@ -16,11 +16,7 @@
 	</style>
 </head>
 <body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><h2 class="western" style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal">
-	<img src="database.png"/>
-	<hr/>
-
 <font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><span style="background: transparent">Sequences</span></font></font></h2>
-
 <ul>
 	<li><p style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; orphans: 2; widows: 2">
 	<font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">seq_matricule</span></font></font></font></p>
@@ -215,7 +211,42 @@
 		+ Salaire on idspecialite</span></font></font></font></p>
 		<li><p style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; orphans: 2; widows: 2; margin-bottom: 0in">
 		<font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">group
-		by idspecialite</span></font></font></font></p>
+		by idservice , categorieservice , nomservice</span></font></font></font></p>
+	</ul>
+	<li><p style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; orphans: 2; widows: 2">
+	<font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">v_charge_materielle:</span></font></font></font></p>
+	<ul>
+		<li><p style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; orphans: 2; widows: 2; margin-bottom: 0in">
+		<font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">calculer:
+		sum(prixunitaire * quantite)</span></font></font></font></p>
+		<li><p style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; orphans: 2; widows: 2; margin-bottom: 0in">
+		<font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">Service
+		+ MaterielUtilise on idservice</span></font></font></font></p>
+		<li><p style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; orphans: 2; widows: 2; margin-bottom: 0in">
+		<font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">MaterielUtilise
+		+ Materiel on idmateriel</span></font></font></font></p>
+		<li><p style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; orphans: 2; widows: 2; margin-bottom: 0in">
+		<font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">group
+		by idservice , categorieservice , nomservice</span></font></font></font></p>
+	</ul>
+	<li><p style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; orphans: 2; widows: 2">
+	<font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">v_charge_totale:</span></font></font></font></p>
+	<ul>
+		<li><p style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; orphans: 2; widows: 2; margin-bottom: 0in">
+		<font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">calculer:
+		montant_charge_salariale + montant_charge_salariale</span></font></font></font></p>
+		<li><p style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; orphans: 2; widows: 2; margin-bottom: 0in">
+		<font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">v_charge_salariale
+		+ v_charge_totale on idservice</span></font></font></font></p>
+	</ul>
+	<li><p style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; orphans: 2; widows: 2">
+	<font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">v_prix_vente:</span></font></font></font></p>
+	<ul>
+		<li><p style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; orphans: 2; widows: 2; margin-bottom: 0in">
+		<font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">calculer:
+		montant + montant*(last marge_beneficieaire)/100</span></font></font></font></p>
+		<li><p style="font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; orphans: 2; widows: 2; margin-bottom: 0in">
+		<font color="#000000"><font face="apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, Droid Sans, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">v_charge_totale</span></font></font></font></p>
 	</ul>
 </ul>
 <p style="line-height: 100%; margin-bottom: 0in"><br/>
