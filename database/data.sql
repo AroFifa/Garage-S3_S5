@@ -12,8 +12,15 @@ INSERT INTO Responsable (idemploye, email, motDePasse) VALUES (1, 'john.doe@gara
 INSERT INTO AffectationService (idemploye, idSpecialite, idService, duree) VALUES (1, 1, 1, 2), (1, 1, 2, 1), (2, 2, 3, 3), (3, 3, 4, 4), (4, 2, 5, 2);
 INSERT INTO Salaire (idSpecialite, montant) VALUES (1, 15000.5), (2, 20000.0), (3, 25000.0);
 
-INSERT INTO MargeBeneficiaire (marge) VALUES (10);
-INSERT INTO MargeBeneficiaire (marge,dateModification) VALUES (15,'2022-12-04');
+INSERT INTO MargeBeneficiaire (marge,idservice) VALUES (10,1);
+INSERT INTO MargeBeneficiaire (marge,idservice) VALUES (15,2);
+INSERT INTO MargeBeneficiaire (marge,idservice) VALUES (20,3);
+INSERT INTO MargeBeneficiaire (marge,idservice) VALUES (20,4);
+INSERT INTO MargeBeneficiaire (marge,idservice) VALUES (15,5);
+INSERT INTO MargeBeneficiaire (marge,idservice) VALUES (30,6);
+
+
+INSERT INTO MargeBeneficiaire (marge,dateModification,idservice) VALUES (15,'2022-12-04',1);
 
 INSERT INTO Unite (nom) VALUES ('litre'), ('unité'), ('mètre');
 INSERT INTO Materiel (nom, prixUnitaire,idunite) VALUES ('huile', 65000,1), ('filtre', 30000,2), ('courroie', 150000,2);

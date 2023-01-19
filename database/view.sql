@@ -20,15 +20,21 @@ SELECT s.idservice, s.categorie , s.description, s.montant+m.montant montant fro
 
 
 CREATE OR REPLACE VIEW v_prix_vente AS 
-SELECT idservice, categorie , description, montant + (montant*( select marge from margebeneficiaire order by datemodification desc limit 1)/100)
-from v_charge_totale;
+SELECT v.idservice, v.categorie , v.description, v.montant + (montant*( select marge from margebeneficiaire where idservice=v.idservice order by datemodification desc limit 1)/100) montant
+from v_charge_totale v;
 
 
-CREATE OR REPLACE VIEW v_prix_service AS
-SELECT *,'charge_salariale' categorie_prix from v_charge_salariale
-UNION ALL 
-SELECT *,'charge_materiel' categorie_prix from v_charge_materielle
-UNION ALL 
-SELECT *,'charge_totale' categorie_prix from v_charge_totale
-UNION ALL
-SELECT *,'prix_vente' categorie_prix from v_prix_vente;
+CREATE OR REPLACE VIEW v_benefice AS 
+SELECT vente.idservice, vente.categorie , vente.description, vente.montant - charge.montant montant
+from v_charge_totale charge join v_prix_vente vente on charge.idservice=vente.idservice ;
+
+-- CREATE OR REPLACE VIEW v_prix_service AS
+-- SELECT *,'charge_salariale' categorie_prix from v_charge_salariale
+-- UNION ALL 
+-- SELECT *,'charge_materiel' categorie_prix from v_charge_materielle
+-- UNION ALL 
+-- SELECT *,'charge_totale' categorie_prix from v_charge_totale
+-- UNION ALL
+-- SELECT *,'prix_vente' categorie_prix from v_prix_vente
+-- UNION ALL
+-- SELECT *,'benefice' categorie_prix from v_benefice;

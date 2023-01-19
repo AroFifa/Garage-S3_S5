@@ -90,7 +90,8 @@ CREATE TABLE Client (
 CREATE TABLE MargeBeneficiaire(
   id serial primary key,
   marge smallint not null check(marge>=0 and marge<=100),
-  dateModification date not null default current_date 
+  dateModification date not null default current_date ,
+  idservice integer REFERENCES Service(id) not null
 );
 
 
