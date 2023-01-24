@@ -1,6 +1,7 @@
 package garage.source_code.GenericDao.generic.dao;
 
 import garage.source_code.GenericDao.generic.note.Utilitaire;
+import garage.source_code.model.Genre;
 
 import java.lang.reflect.Field;
 import java.sql.PreparedStatement;
@@ -166,10 +167,11 @@ public class GenericDao {
 
             rs = stmt.executeQuery();
 
-//            System.out.println(stmt);
+            System.out.println(stmt);
             ArrayList<Object> liste = construct_list(o, rs);
             return liste;
         } catch (SQLException e) {
+//            System.out.println(stmt);
             throw e;
         } catch (Exception e) {
             throw e;
@@ -213,6 +215,7 @@ public class GenericDao {
     private int exist(Object o, ConnectDb con) throws Exception {
         try {
             Column pk = Utilitaire.getPk(o);
+
             if (pk.getValue() == null)
                 return -1;
 
@@ -330,7 +333,25 @@ public class GenericDao {
         try {
             con=Utilitaire.getConnection(obj);
             save(obj, con);
+
+
         } catch (Exception e) {
+
+            throw e;
+        }finally {
+            con.close();
+        }
+    }
+    public String strSave(Object obj) throws Exception {
+        ConnectDb con=null;
+        try {
+            con=Utilitaire.getConnection(obj);
+            save(obj, con);
+
+
+            return "con.toString()";
+        } catch (Exception e) {
+
             throw e;
         }finally {
             con.close();
@@ -342,15 +363,14 @@ public class GenericDao {
         PreparedStatement stmt = null;
 
         try {
-            ArrayList<Column> fk = Utilitaire.getFk(obj);
-//		    System.out.println(fk.size());
-            for (Column c : fk) {
-                if (exist(c.getValue(), Utilitaire.getConnection(obj)) == -1) {
-                    new GenericDao().generate_pk(c);
-                    save(c.getValue());
-                }
-
-            }
+//            ArrayList<Column> fk = Utilitaire.getFk(obj);
+//            for (Column c : fk) {
+//                if (exist(c.getValue(), Utilitaire.getConnection(obj)) == -1) {
+//                    new GenericDao().generate_pk(c);
+//                    save(c.getValue());
+//                }
+//
+//            }
 
 
             req = ScriptDao.insert(getTableName(obj), getDbFields(obj));
@@ -474,6 +494,7 @@ public class GenericDao {
             con=Utilitaire.getConnection(o);
             generate_pk(o, con);
         } catch (Exception e) {
+            System.out.println(o);
             throw e;
         }finally {
             con.close();

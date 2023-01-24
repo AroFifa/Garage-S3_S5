@@ -24,6 +24,8 @@ public class Employe {
     @Attr
     Date datenaissance;
 
+
+
     @Attr(fk = true,column = "idniveauetude")
     NiveauEtude niveauEtude;
     @Attr(fk = true,column = "idgenre")
@@ -31,6 +33,28 @@ public class Employe {
 
     public Employe() {
     }
+    public Employe(String nom, String prenom, String idgenre, String idniveauEtude, String date_naissance) {
+        setNom(nom);
+        setPrenom(prenom);
+
+        Genre g=new Genre();
+        g.setId(Integer.valueOf(idgenre));
+
+        setGenre(g);
+
+        NiveauEtude nv=new NiveauEtude();
+        nv.setId(Integer.valueOf(idniveauEtude));
+
+        setNiveauEtude(nv);
+
+        try {
+            setDatenaissance(Date.valueOf(date_naissance));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 
     public Integer getId() {
         return id;
@@ -70,7 +94,7 @@ public class Employe {
 
     public void setDatenaissance(Date datenaissance) throws Exception {
         if(calculateAge(datenaissance)<18)
-            throw new Exception("Employe mineur");
+            throw new Exception("Employé mineur");
         this.datenaissance = datenaissance;
     }
 

@@ -46,7 +46,20 @@ public class ScriptDao {
             for (int j = i + 1; j < size; j++) {
 
                 if (fieldsDB.get(j).getValue() != null) {
-                    result += " " + split + " ";
+                    if(fieldsDB.get(j).fk){
+//                        System.out.println(result);
+                        try {
+                            if(Utilitaire.getPk(fieldsDB.get(j).getValue()).getValue()!=null){
+                                result += " " + split + " ";
+                                break;
+                            }
+                        } catch (Throwable e) {
+                            throw e;
+                        }
+                    }else{
+                        result += " " + split + " ";
+                    break;
+                    }
                 }
             }
         }
