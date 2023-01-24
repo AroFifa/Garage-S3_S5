@@ -7,7 +7,7 @@ import java.sql.Date;
 
 @Table
 public class MargeBeneficiaire {
-    @Attr(pk = true,sequence = "margebenficiaire_id_seq")
+    @Attr(pk = true, sequence = "margebenficiaire_id_seq")
     Integer id;
     @Attr
     Integer marge;
@@ -15,7 +15,7 @@ public class MargeBeneficiaire {
     @Attr
     Date datemodification;
 
-    @Attr(fk = true,column = "idservice")
+    @Attr(fk = true, column = "idservice")
     Service service;
 
     public MargeBeneficiaire() {

@@ -5,16 +5,16 @@ import garage.source_code.GenericDao.generic.note.Table;
 
 @Table
 public class AffectationService {
-    @Attr(pk = true,sequence = "affectationservice_id_seq")
+    @Attr(pk = true, sequence = "affectationservice_id_seq")
     Integer id;
     @Attr
     Integer duree;
 
-    @Attr(fk = true,column = "idemploye")
+    @Attr(fk = true, column = "idemploye")
     Employe employe;
-    @Attr(fk = true,column = "idspecialite")
+    @Attr(fk = true, column = "idspecialite")
     Specialite specialite;
-    @Attr(fk = true,column = "idservice")
+    @Attr(fk = true, column = "idservice")
     Service service;
 
     public AffectationService() {

@@ -5,13 +5,16 @@ import garage.source_code.GenericDao.generic.note.Table;
 
 @Table
 public class Salaire {
-    @Attr(pk = true,sequence = "salaire_id_seq")
+    @Attr(pk = true, sequence = "salaire_id_seq")
     Integer id;
     @Attr
     Double montant;
 
     @Attr(fk = true, column = "idspecialtie")
     Specialite specialite;
+
+    public Salaire() {
+    }
 
     public Integer getId() {
         return id;
@@ -27,8 +30,5 @@ public class Salaire {
 
     public void setMontant(Double montant) {
         this.montant = montant;
-    }
-
-    public Salaire() {
     }
 }

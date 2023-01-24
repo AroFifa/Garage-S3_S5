@@ -17,35 +17,35 @@ public class ConnectDb {
     Connection connection;
 
     public ConnectDb(String base, String user, String database, String password)
-            throws SQLException {
+            throws SQLException, ClassNotFoundException {
         setBase(base);
         setDatabase(database);
         setUser(user);
         setPassword(password);
         try {
             connect();
-        } catch (SQLException e) {
+        } catch (Throwable e) {
             throw e;
         }
     }
 
     public ConnectDb(String base, String user, String passwd)
-            throws SQLException {
+            throws SQLException, ClassNotFoundException {
         setBase(base);
         setUser(user);
         setPassword(passwd);
         try {
             connect();
-        } catch (SQLException e) {
+        } catch (Throwable e) {
             throw e;
         }
     }
 
-    public ConnectDb() throws SQLException {
+    public ConnectDb() throws SQLException, ClassNotFoundException {
         try {
             connect();
 
-        } catch (SQLException e) {
+        } catch (Throwable e) {
             throw e;
         }
     }
@@ -157,17 +157,19 @@ public class ConnectDb {
     }
 
     // Initializing the connection on the server
-    public void connect() throws SQLException {
+    public void connect() throws SQLException, ClassNotFoundException {
         Connection connect = null;
-//		  System.out.println(url);
         try {
+
+            Class.forName("org.postgresql.Driver");
+
             connect = DriverManager.getConnection(
                     this.url,
                     this.user,
                     this.password);
             connect.setAutoCommit(false);
 
-        } catch (SQLException e) {
+        } catch (Throwable e) {
 
             throw e;
         }

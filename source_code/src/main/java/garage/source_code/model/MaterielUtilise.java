@@ -5,16 +5,16 @@ import garage.source_code.GenericDao.generic.note.Table;
 
 @Table
 public class MaterielUtilise {
-    @Attr(pk = true,sequence = "materielutilise_id_seq")
+    @Attr(pk = true, sequence = "materielutilise_id_seq")
     Integer id;
 
     @Attr
     Integer quantite;
 
-    @Attr(fk = true,column = "idservice")
+    @Attr(fk = true, column = "idservice")
     Service service;
 
-    @Attr(fk = true,column = "idmateriel")
+    @Attr(fk = true, column = "idmateriel")
     Materiel materiel;
 
     public MaterielUtilise() {

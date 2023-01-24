@@ -5,10 +5,13 @@ import garage.source_code.GenericDao.generic.note.Table;
 
 @Table
 public class Unite {
-    @Attr(pk = true,sequence = "unite_id_seq")
+    @Attr(pk = true, sequence = "unite_id_seq")
     Integer id;
     @Attr
     String nom;
+
+    public Unite() {
+    }
 
     public Integer getId() {
         return id;
@@ -24,8 +27,5 @@ public class Unite {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public Unite() {
     }
 }

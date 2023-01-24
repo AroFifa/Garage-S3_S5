@@ -14,44 +14,45 @@ public class SpecialiteEmployeService {
     public Object[] getData(String idemploye) throws Exception {
 
 
-        Specialite s=new Specialite();
-        Employe emp=new Employe();
+        Specialite s = new Specialite();
+        Employe emp = new Employe();
+        emp.setId(Integer.valueOf(idemploye));
 
-        GenericDao dao=new GenericDao();
-        ConnectDb con=null;
+
+        GenericDao dao = new GenericDao();
+        ConnectDb con = null;
 
         try {
-            con= Utilitaire.getConnection(s);
-            List<Specialite> specialites=(List)dao.getAll(s,con);
-            emp= (Employe) dao.getBy_id(emp,con);
+            con = Utilitaire.getConnection(s);
+//            List<Specialite> specialites = (List) dao.getAll(s, con);
+            List<Specialite> specialites = (List) dao.getByQuery(s, "SELECT * from Specialite where id not in (SELECT idspecialite from specialiteemploye where idemploye="+idemploye+")");
+            emp = (Employe) dao.getBy_id(emp, con);
 
-            return new Object[]{emp,specialites};
+            return new Object[]{emp, specialites};
 
         } catch (Throwable e) {
             throw e;
-        }finally {
-            if(con!=null)
+        } finally {
+            if (con != null)
                 con.close();
         }
 
 
-
-
     }
 
-    public void addSpecialiteToEmploye(String idemploye,String idspecialite) throws Exception {
-        SpecialiteEmploye se=new SpecialiteEmploye();
+    public void addSpecialiteToEmploye(String idemploye, String idspecialite) throws Exception {
+        SpecialiteEmploye se = new SpecialiteEmploye();
 
-        Employe emp=new Employe();
+        Employe emp = new Employe();
         emp.setId(Integer.valueOf(idemploye));
 
-        Specialite sp=new Specialite();
+        Specialite sp = new Specialite();
         sp.setId(Integer.valueOf(idspecialite));
 
         se.setEmploye(emp);
         se.setSpecialite(sp);
 
-        GenericDao dao=new GenericDao();
+        GenericDao dao = new GenericDao();
         try {
             dao.save(se);
         } catch (Throwable e) {

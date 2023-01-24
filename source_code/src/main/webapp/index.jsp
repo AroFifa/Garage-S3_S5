@@ -6,6 +6,6 @@
 </head>
 <body>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<a href="hello-servlet">Welcome</a>
 </body>
 </html>

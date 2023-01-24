@@ -5,10 +5,13 @@ import garage.source_code.GenericDao.generic.note.Table;
 
 @Table(tableName = "niveauetude")
 public class NiveauEtude {
-    @Attr(pk = true,sequence = "niveauetude_id_seq")
+    @Attr(pk = true, sequence = "niveauetude_id_seq")
     Integer id;
     @Attr
     String nom;
+
+    public NiveauEtude() {
+    }
 
     public Integer getId() {
         return id;
@@ -24,8 +27,5 @@ public class NiveauEtude {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public NiveauEtude() {
     }
 }

@@ -1,7 +1,6 @@
 package garage.source_code.GenericDao.generic.dao;
 
 import garage.source_code.GenericDao.generic.note.Utilitaire;
-import garage.source_code.model.Genre;
 
 import java.lang.reflect.Field;
 import java.sql.PreparedStatement;
@@ -53,6 +52,7 @@ public class GenericDao {
             stmt = con.prepareStmt(script_getByid(pk, o));
             stmt.setObject(1, pk.getValue());
 
+//            System.out.println(stmt);
             return stmt.executeQuery();
         } catch (Exception e) {
             throw e;
@@ -111,25 +111,38 @@ public class GenericDao {
 
 
     public ArrayList<Object> get(Object obj, String condition) throws Exception {
-        ConnectDb con=null;
+        ConnectDb con = null;
         try {
-            con=Utilitaire.getConnection(obj);
+            con = Utilitaire.getConnection(obj);
             return get(obj, condition, con);
         } catch (Exception e) {
             throw e;
-        }finally {
+        } finally {
+            con.close();
+        }
+    }
+
+
+    public ArrayList<Object> getByQuery(Object obj, String query) throws Exception {
+        ConnectDb con = null;
+        try {
+            con = Utilitaire.getConnection(obj);
+            return getByQuery(obj, query, con);
+        } catch (Exception e) {
+            throw e;
+        } finally {
             con.close();
         }
     }
 
     public ArrayList<Object> getAll(Object obj) throws Exception {
-        ConnectDb con=null;
+        ConnectDb con = null;
         try {
-            con=Utilitaire.getConnection(obj);
+            con = Utilitaire.getConnection(obj);
             return getAll(obj, con);
         } catch (Exception e) {
             throw e;
-        }finally {
+        } finally {
             con.close();
         }
     }
@@ -179,7 +192,39 @@ public class GenericDao {
             try {
                 if (rs != null)
                     rs.close();
-                if(stmt!=null)
+                if (stmt != null)
+                    stmt.close();
+            } catch (SQLException e) {
+                throw e;
+            }
+
+        }
+
+    }
+
+
+    public ArrayList<Object> getByQuery(Object o, String query, ConnectDb con) throws Exception {
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+
+            stmt = con.prepareStmt(query);
+
+            rs = stmt.executeQuery();
+
+            System.out.println(stmt);
+            ArrayList<Object> liste = construct_list(o, rs);
+            return liste;
+        } catch (SQLException e) {
+//            System.out.println(stmt);
+            throw e;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            try {
+                if (rs != null)
+                    rs.close();
+                if (stmt != null)
                     stmt.close();
             } catch (SQLException e) {
                 throw e;
@@ -265,13 +310,13 @@ public class GenericDao {
     }
 
     public Object getBy_id(Object o) throws Exception {
-        ConnectDb con=null;
+        ConnectDb con = null;
         try {
-            con=Utilitaire.getConnection(o);
+            con = Utilitaire.getConnection(o);
             return getBy_id(o, con);
         } catch (Exception e) {
             throw e;
-        }finally {
+        } finally {
             con.close();
         }
     }
@@ -297,9 +342,9 @@ public class GenericDao {
                 }
 
                 if (o.isFk()) {
-                    Object pkvalue=Utilitaire.getPk(o.getValue()).getValue();
+                    Object pkvalue = Utilitaire.getPk(o.getValue()).getValue();
 //                    System.out.println("pk value: "+pkvalue);
-                    if(pkvalue!=null)
+                    if (pkvalue != null)
                         stmt.setObject(i, Utilitaire.getPk(o.getValue()).getValue());
                 } else {
                     stmt.setObject(i, o.getValue());
@@ -329,23 +374,24 @@ public class GenericDao {
     }
 
     public void save(Object obj) throws Exception {
-        ConnectDb con=null;
+        ConnectDb con = null;
         try {
-            con=Utilitaire.getConnection(obj);
+            con = Utilitaire.getConnection(obj);
             save(obj, con);
 
 
         } catch (Exception e) {
 
             throw e;
-        }finally {
+        } finally {
             con.close();
         }
     }
+
     public String strSave(Object obj) throws Exception {
-        ConnectDb con=null;
+        ConnectDb con = null;
         try {
-            con=Utilitaire.getConnection(obj);
+            con = Utilitaire.getConnection(obj);
             save(obj, con);
 
 
@@ -353,7 +399,7 @@ public class GenericDao {
         } catch (Exception e) {
 
             throw e;
-        }finally {
+        } finally {
             con.close();
         }
     }
@@ -400,25 +446,25 @@ public class GenericDao {
     }
 
     public void update(Object obj) throws Exception {
-        ConnectDb con=null;
+        ConnectDb con = null;
         try {
-            con=Utilitaire.getConnection(obj);
+            con = Utilitaire.getConnection(obj);
             update(obj, con);
         } catch (Exception e) {
             throw e;
-        }finally {
+        } finally {
             con.close();
         }
     }
 
     public void delete(Object obj) throws Exception {
-        ConnectDb con=null;
+        ConnectDb con = null;
         try {
-            con=Utilitaire.getConnection(obj);
+            con = Utilitaire.getConnection(obj);
             delete(obj, con);
         } catch (Exception e) {
             throw e;
-        }finally {
+        } finally {
             con.close();
         }
     }
@@ -489,14 +535,14 @@ public class GenericDao {
     }
 
     public void generate_pk(Object o) throws Exception {
-        ConnectDb con=null;
+        ConnectDb con = null;
         try {
-            con=Utilitaire.getConnection(o);
+            con = Utilitaire.getConnection(o);
             generate_pk(o, con);
         } catch (Exception e) {
             System.out.println(o);
             throw e;
-        }finally {
+        } finally {
             con.close();
         }
     }

@@ -222,7 +222,7 @@ public class Utilitaire {
 
     }
 
-    public static ConnectDb getConnection(Object o) throws ExceptionDao, SQLException {
+    public static ConnectDb getConnection(Object o) throws ExceptionDao, SQLException, ClassNotFoundException {
         ConnectDb c = null;
         Table tableNote = o.getClass().getAnnotation(Table.class);
         if (tableNote != null) {
@@ -233,7 +233,7 @@ public class Utilitaire {
                     c = new ConnectDb(tableNote.sgbd(), tableNote.user(), tableNote.database(), tableNote.password());
                 }
                 return c;
-            } catch (SQLException e) {
+            } catch (Throwable e) {
                 throw e;
             }
         } else

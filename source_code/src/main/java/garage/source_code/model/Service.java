@@ -6,14 +6,17 @@ import garage.source_code.GenericDao.generic.note.Table;
 @Table
 public class Service {
 
-    @Attr(pk = true,sequence = "service_id_seq")
+    @Attr(pk = true, sequence = "service_id_seq")
     Integer id;
 
     @Attr
     String nom;
 
-    @Attr(fk = true,column = "idcategorieservice")
+    @Attr(fk = true, column = "idcategorieservice")
     CategorieService categorieService;
+
+    public Service() {
+    }
 
     public Integer getId() {
         return id;
@@ -37,8 +40,5 @@ public class Service {
 
     public void setCategorieService(CategorieService categorieService) {
         this.categorieService = categorieService;
-    }
-
-    public Service() {
     }
 }

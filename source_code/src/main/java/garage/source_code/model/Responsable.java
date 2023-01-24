@@ -5,7 +5,7 @@ import garage.source_code.GenericDao.generic.note.Table;
 
 @Table
 public class Responsable {
-    @Attr(pk = true,sequence = "responsable_id_seq")
+    @Attr(pk = true, sequence = "responsable_id_seq")
     Integer id;
     @Attr
     String email;
@@ -13,9 +13,12 @@ public class Responsable {
     @Attr
     String motdepasse;
 
-    @Attr(fk = true,column = "idemploye")
+    @Attr(fk = true, column = "idemploye")
     Employe employe;
 
+
+    public Responsable() {
+    }
 
     public Integer getId() {
         return id;
@@ -31,8 +34,5 @@ public class Responsable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Responsable() {
     }
 }

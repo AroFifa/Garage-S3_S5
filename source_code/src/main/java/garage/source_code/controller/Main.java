@@ -1,24 +1,27 @@
 package garage.source_code.controller;
 
-import garage.source_code.GenericDao.generic.dao.GenericDao;
-import garage.source_code.model.*;
+import garage.source_code.model.Employe;
 import garage.source_code.service.EmployeService;
+import garage.source_code.service.SpecialiteEmployeService;
 
-import java.sql.Date;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws Exception {
 //        GenericDao dao=new GenericDao();
 
-        EmployeService service=new EmployeService();
+        SpecialiteEmployeService service=new SpecialiteEmployeService();
+        Object[] data=service.getData("1");
+        System.out.println(((Employe)data[0]).formatSpecialites());
+
+//        EmployeService service = new EmployeService();
 //        service.createEmploye("Rakoto","Modeste","1","1","2003-01-01");
 
-        List<Employe> employes=service.search("oh");
-        for (Employe e :
-                employes) {
-            System.out.println(e.getNom());
-        }
+//        List<Employe> employes = service.search("oh");
+//        for (Employe e :
+//                employes) {
+//            System.out.println(e.getNom());
+//        }
 //        Employe e=new Employe();
 //        e.setDatenaissance(Date.valueOf("2005-01-01"));
 //        System.out.println(e.getAge());

@@ -1,32 +1,32 @@
 package garage.source_code.controller;
 
-import garage.source_code.model.Genre;
-import garage.source_code.model.NiveauEtude;
 import garage.source_code.service.EmployeService;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "SearchEmployeC", value = "/SearchEmployeC")
 public class SearchEmployeC extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setAttribute("content","list_emp");
-        request.setAttribute("nav","employe");
-        request.setAttribute("content_title","EmployeService");
+        request.setAttribute("content", "list_emp");
+        request.setAttribute("nav", "employe");
+        request.setAttribute("content_title", "Employé");
 
-        EmployeService service=new EmployeService();
+        EmployeService service = new EmployeService();
         try {
 
-            String pattern=request.getParameter("pattern");
+            String pattern = request.getParameter("pattern");
 
-            request.setAttribute("employes",service.search(pattern));
+            request.setAttribute("employes", service.search(pattern));
 
-            RequestDispatcher dispatcher=request.getRequestDispatcher("template/main.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("template/main.jsp");
             dispatcher.forward(request, response);
 //        response.sendRedirect("template/main.jsp");
         } catch (Exception e) {

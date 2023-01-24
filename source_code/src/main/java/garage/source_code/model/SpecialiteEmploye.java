@@ -5,9 +5,9 @@ import garage.source_code.GenericDao.generic.note.Table;
 
 @Table
 public class SpecialiteEmploye {
-    @Attr(fk = true,column = "idemploye")
+    @Attr(fk = true, column = "idemploye")
     Employe employe;
-    @Attr(fk = true,column = "idspecialite")
+    @Attr(fk = true, column = "idspecialite")
     Specialite specialite;
 
     public SpecialiteEmploye() {

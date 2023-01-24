@@ -5,10 +5,13 @@ import garage.source_code.GenericDao.generic.note.Table;
 
 @Table
 public class CategorieClient {
-    @Attr(pk = true,sequence = "categorieclient_id_seq")
+    @Attr(pk = true, sequence = "categorieclient_id_seq")
     Integer id;
     @Attr
     String nom;
+
+    public CategorieClient() {
+    }
 
     public Integer getId() {
         return id;
@@ -24,8 +27,5 @@ public class CategorieClient {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public CategorieClient() {
     }
 }

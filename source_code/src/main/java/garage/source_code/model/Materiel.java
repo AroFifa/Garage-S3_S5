@@ -5,7 +5,7 @@ import garage.source_code.GenericDao.generic.note.Table;
 
 @Table
 public class Materiel {
-    @Attr(pk = true,sequence = "materiel_id_seq")
+    @Attr(pk = true, sequence = "materiel_id_seq")
     Integer id;
 
     @Attr
@@ -14,7 +14,7 @@ public class Materiel {
     @Attr
     Double prixunitaire;
 
-    @Attr(fk = true,column = "idunite")
+    @Attr(fk = true, column = "idunite")
     Unite unite;
 
     public Materiel() {

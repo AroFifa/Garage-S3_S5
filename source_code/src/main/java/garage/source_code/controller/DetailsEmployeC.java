@@ -1,8 +1,8 @@
 package garage.source_code.controller;
 
-import garage.source_code.model.Genre;
-import garage.source_code.model.NiveauEtude;
-import garage.source_code.service.EmployeService;
+import garage.source_code.model.Employe;
+import garage.source_code.model.Specialite;
+import garage.source_code.service.SpecialiteEmployeService;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,20 +13,23 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "NewEmployeC", value = "/NewEmployeC")
-public class NewEmployeC extends HttpServlet {
+@WebServlet(name = "DetailsEmployeC", value = "/DetailsEmployeC")
+public class DetailsEmployeC extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setAttribute("content", "new_emp");
+        request.setAttribute("content", "details_emp");
         request.setAttribute("nav", "employe");
         request.setAttribute("content_title", "Employé");
 
-        EmployeService service = new EmployeService();
+        SpecialiteEmployeService service = new SpecialiteEmployeService();
         try {
-            Object[] data = service.getData();
-            request.setAttribute("genres", (List<Genre>) data[0]);
-            request.setAttribute("niveauEtudes", (List<NiveauEtude>) data[1]);
+
+            String idemploye = request.getParameter("idemploye");
+
+            Object[] data = service.getData(idemploye);
+            request.setAttribute("specialites", (List<Specialite>) data[1]);
+            request.setAttribute("employe", (Employe) data[0]);
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("template/main.jsp");
             dispatcher.forward(request, response);
@@ -40,19 +43,14 @@ public class NewEmployeC extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String nom = request.getParameter("nom");
-        String prenom = request.getParameter("prenom");
-        String idgenre = request.getParameter("idgenre");
-        String idniveauEtude = request.getParameter("idniveauEtude");
-        String dateNaissance = request.getParameter("dateNaissance");
+        SpecialiteEmployeService service = new SpecialiteEmployeService();
 
-        EmployeService service = new EmployeService();
+        String idemploye = request.getParameter("idemploye");
+        String idservice = request.getParameter("idspecialite");
+
         try {
-
-
-            service.createEmploye(nom, prenom, idgenre, idniveauEtude, dateNaissance);
-            response.sendRedirect("SearchEmployeC");
-
+            service.addSpecialiteToEmploye(idemploye, idservice);
+            response.sendRedirect("DetailsEmployeC?idemploye=" + idemploye);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

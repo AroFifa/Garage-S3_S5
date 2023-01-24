@@ -12,7 +12,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/fonts/simple-line-icons.min.css">
@@ -23,29 +24,34 @@
 </head>
 <body>
 <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
-    <div class="container"><a class="navbar-brand" href="#">Garage</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
+    <div class="container"><a class="navbar-brand" href="#">Garage</a>
+        <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
         <div class="collapse navbar-collapse" id="navcol-1"></div>
     </div>
 </nav>
-<header class="text-center text-white masthead" style="background: url('../assets/img/pexels-andrea-piacquadio-3817858.jpg')no-repeat center center;background-size: cover;"></header>
+<header class="text-center text-white masthead"
+        style="background: url('../assets/img/pexels-andrea-piacquadio-3817858.jpg')no-repeat center center;background-size: cover;"></header>
 <section class="text-center bg-light features-icons">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
                 <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                    <div class="d-flex features-icons-icon"><i class="fas fa-user-tie m-auto text-primary" data-bss-hover-animate="pulse"></i></div>
-                    <h3><a href="NewEmployeC">Employés</a></h3>
+                    <div class="d-flex features-icons-icon"><i class="fas fa-user-tie m-auto text-primary"
+                                                               data-bss-hover-animate="pulse"></i></div>
+                    <h3><a href="/NewEmployeC">Employés</a></h3>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                    <div class="d-flex features-icons-icon"><i class="fas fa-clipboard-list m-auto text-primary" data-bss-hover-animate="pulse"></i></div>
+                    <div class="d-flex features-icons-icon"><i class="fas fa-clipboard-list m-auto text-primary"
+                                                               data-bss-hover-animate="pulse"></i></div>
                     <h3><a href="">Services</a></h3>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                    <div class="d-flex features-icons-icon"><i class="fas fa-user-friends m-auto text-primary" data-bss-hover-animate="pulse"></i></div>
+                    <div class="d-flex features-icons-icon"><i class="fas fa-user-friends m-auto text-primary"
+                                                               data-bss-hover-animate="pulse"></i></div>
                     <h3>Client</h3>
                 </div>
             </div>
@@ -78,8 +84,8 @@
         </div>
     </div>
 </footer>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/bs-init.js"></script>
-<script src="assets/js/MagicNav.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/js/bs-init.js"></script>
+<script src="../assets/js/MagicNav.js"></script>
 </body>
 </html>
