@@ -59,4 +59,18 @@ public class SpecialiteEmployeService {
             throw e;
         }
     }
+
+    public void createSpecialite(String nom,String description) throws Exception {
+        Specialite specialite=new Specialite();
+        specialite.setNom(nom);
+        specialite.setDescription(description);
+
+        GenericDao dao=new GenericDao();
+        try {
+            dao.save(specialite);
+        } catch (Throwable e) {
+            throw e;
+        }
+
+    }
 }

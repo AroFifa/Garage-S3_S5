@@ -39,8 +39,15 @@ public class ScriptDao {
             }
 
 
+            if(fieldsDB.get(i).getValue().getClass().equals(String.class))
+                result += fieldsDB.get(i).getColumn() + " ilike ?";
+            else
+                result += fieldsDB.get(i).getColumn() + "=?";
+
+
+
 //            System.out.println(fieldsDB.get(i).getValue());
-            result += fieldsDB.get(i).getColumn() + "=?";
+//            result += fieldsDB.get(i).getColumn() + "=?";
 
             for (int j = i + 1; j < size; j++) {
 

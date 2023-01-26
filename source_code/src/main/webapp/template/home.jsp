@@ -36,16 +36,22 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                    <div class="d-flex features-icons-icon"><i class="fas fa-user-tie m-auto text-primary"
-                                                               data-bss-hover-animate="pulse"></i></div>
-                    <h3><a href="/NewEmployeC">Employés</a></h3>
+                    <a href="/NewEmployeC">
+                        <div class="d-flex features-icons-icon">
+                            <i class="fas fa-user-tie m-auto text-primary" data-bss-hover-animate="pulse"></i>
+                        </div>
+                        <h3>Employés</h3>
+                    </a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                    <div class="d-flex features-icons-icon"><i class="fas fa-clipboard-list m-auto text-primary"
-                                                               data-bss-hover-animate="pulse"></i></div>
-                    <h3><a href="">Services</a></h3>
+                    <a href="/ServiceC">
+                        <div class="d-flex features-icons-icon">
+                            <i class="fas fa-clipboard-list m-auto text-primary" data-bss-hover-animate="pulse"></i>
+                        </div>
+                        <h3>Services</h3>
+                    </a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -53,6 +59,13 @@
                     <div class="d-flex features-icons-icon"><i class="fas fa-user-friends m-auto text-primary"
                                                                data-bss-hover-animate="pulse"></i></div>
                     <h3>Client</h3>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                    <div class="d-flex features-icons-icon"><i class="fas fa-money-check m-auto text-primary"
+                                                               data-bss-hover-animate="pulse"></i></div>
+                    <h3>Salaire</h3>
                 </div>
             </div>
         </div>
@@ -72,7 +85,7 @@
                     <li class="list-inline-item"><span>⋅</span></li>
                     <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
                 </ul>
-                <p class="text-muted small mb-4 mb-lg-0">© Brand 2023. All Rights Reserved.</p>
+                <p class="text-muted small mb-4 mb-lg-0">© Group 3, Garage project.</p>
             </div>
             <div class="col-lg-6 text-center text-lg-end my-auto h-100">
                 <ul class="list-inline mb-0">

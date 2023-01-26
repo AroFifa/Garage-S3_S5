@@ -36,7 +36,7 @@
                 <tbody>
                 <% for (Employe e : employes) { %>
                 <tr>
-                    <td class="text-truncate" style="max-width: 200px;"><%=e.getMatricule()%>
+                    <td class="text-truncate" style="max-width: 200px;"><a href="DetailsEmployeC?idemploye=<%=e.getId()%>"><%=e.getMatricule()%></a>
                     </td>
                     <td class="text-truncate" style="max-width: 200px;"><%=e.getNom() %> <%=e.getPrenom()%>
                     </td>
@@ -44,8 +44,6 @@
                     </td>
                     <td class="text-truncate" style="max-width: 200px;"><%=e.getGenre().getNom()%>
                     </td>
-                    <td class="text-truncate" style="max-width: 200px;"><a
-                            href="DetailsEmployeC?idemploye=<%=e.getId()%>">détails</a></td>
 
                 </tr>
                 <% } %>

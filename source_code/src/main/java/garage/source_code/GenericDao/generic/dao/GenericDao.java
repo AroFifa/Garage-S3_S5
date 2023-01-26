@@ -7,8 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
-public class GenericDao {
+public class GenericDao implements InterfaceDAO {
 
     public String getTableName(Object obj) {
         return Utilitaire.getTablename(obj);
@@ -180,7 +181,7 @@ public class GenericDao {
 
             rs = stmt.executeQuery();
 
-            System.out.println(stmt);
+//            System.out.println(stmt);
             ArrayList<Object> liste = construct_list(o, rs);
             return liste;
         } catch (SQLException e) {
@@ -216,7 +217,7 @@ public class GenericDao {
             ArrayList<Object> liste = construct_list(o, rs);
             return liste;
         } catch (SQLException e) {
-//            System.out.println(stmt);
+            System.out.println(stmt);
             throw e;
         } catch (Exception e) {
             throw e;
@@ -339,6 +340,9 @@ public class GenericDao {
                 } else if (type.equals("select") || type.equals("update")) {
                     if (o.getValue() == null)
                         continue;
+
+                    if(o.getValue().getClass().equals(String.class))
+                        o.setValue("%".concat(o.getValue().toString()).concat("%"));
                 }
 
                 if (o.isFk()) {
@@ -373,6 +377,7 @@ public class GenericDao {
         }
     }
 
+    @Override
     public void save(Object obj) throws Exception {
         ConnectDb con = null;
         try {
@@ -388,21 +393,43 @@ public class GenericDao {
         }
     }
 
-    public String strSave(Object obj) throws Exception {
-        ConnectDb con = null;
+    @Override
+    public List<Object> findAll(Object obj) throws Throwable {ConnectDb con = null;
         try {
             con = Utilitaire.getConnection(obj);
-            save(obj, con);
-
-
-            return "con.toString()";
+            return getAll(obj, con);
         } catch (Exception e) {
-
             throw e;
         } finally {
             con.close();
         }
     }
+
+    @Override
+    public List<Object> find(Object obj) throws Throwable { ConnectDb con = null;
+        try {
+            con = Utilitaire.getConnection(obj);
+            return get(obj, "and", con);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            con.close();
+        }
+    }
+
+    @Override
+    public Object findById(Object o) throws Throwable {
+        ConnectDb con = null;
+        try {
+            con = Utilitaire.getConnection(o);
+            return getBy_id(o, con);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            con.close();
+        }
+    }
+
 
     public void save(Object obj, ConnectDb connectdb) throws Exception {
         String req = null;
@@ -445,6 +472,7 @@ public class GenericDao {
         }
     }
 
+    @Override
     public void update(Object obj) throws Exception {
         ConnectDb con = null;
         try {
@@ -457,6 +485,7 @@ public class GenericDao {
         }
     }
 
+    @Override
     public void delete(Object obj) throws Exception {
         ConnectDb con = null;
         try {
@@ -468,6 +497,7 @@ public class GenericDao {
             con.close();
         }
     }
+
 
     public void update(Object obj, ConnectDb connectdb) throws Exception {
         String req = null;

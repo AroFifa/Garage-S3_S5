@@ -1,7 +1,9 @@
 package garage.source_code.controller;
 
 import garage.source_code.model.Employe;
+import garage.source_code.model.PrixService;
 import garage.source_code.service.EmployeService;
+import garage.source_code.service.ServiceService;
 import garage.source_code.service.SpecialiteEmployeService;
 
 import java.util.List;
@@ -10,18 +12,22 @@ public class Main {
     public static void main(String[] args) throws Exception {
 //        GenericDao dao=new GenericDao();
 
-        SpecialiteEmployeService service=new SpecialiteEmployeService();
-        Object[] data=service.getData("1");
-        System.out.println(((Employe)data[0]).formatSpecialites());
+//        SpecialiteEmployeService service=new SpecialiteEmployeService();
+//        Object[] data=service.getData("1");
+//        System.out.println(((Employe)data[0]).formatSpecialites());
+
+
+        ServiceService service=new ServiceService();
+
 
 //        EmployeService service = new EmployeService();
 //        service.createEmploye("Rakoto","Modeste","1","1","2003-01-01");
 
-//        List<Employe> employes = service.search("oh");
-//        for (Employe e :
-//                employes) {
-//            System.out.println(e.getNom());
-//        }
+        List<PrixService> services = service.getAllPrixService(PrixService.ctg_charge_materiel);
+        for (PrixService e :
+                services) {
+            System.out.println(e.getService().getNom());
+        }
 //        Employe e=new Employe();
 //        e.setDatenaissance(Date.valueOf("2005-01-01"));
 //        System.out.println(e.getAge());
