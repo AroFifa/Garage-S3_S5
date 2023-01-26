@@ -41,7 +41,7 @@
                         <tr>
                             <th>Produit</th>
                             <th>Prix d'achat</th>
-                            <th>Marge (%)</th>
+                            <th>Bénéfice</th>
                             <th>Prix conseillé</th>
                         </tr>
                         </thead>
@@ -54,7 +54,7 @@
                             <td class="text-truncate" style="max-width: 200px;"><%=m.getPrixunitaire() %>
                             </td>
                             <td class="text-truncate" style="max-width: 200px;">
-                                <%=m.getMargeProduit().getMarge() %>
+                                <%=m.getBenefice() %>
                             </td>
 
                             <td class="text-truncate" style="max-width: 200px;"><%=m.getPrixconseille() %>
