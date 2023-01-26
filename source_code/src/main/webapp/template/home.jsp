@@ -68,6 +68,18 @@
                     <h3>Salaire</h3>
                 </div>
             </div>
+
+            <div class="col-lg-4">
+                <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                    <a href="/ChoixMaterielC">
+                        <div class="d-flex features-icons-icon">
+                            <i class="fas fa-tools m-auto text-primary" data-bss-hover-animate="pulse"></i>
+                        </div>
+                        <h3>Produits</h3>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>

@@ -112,3 +112,10 @@ CREATE TABLE MaterielUtilise (
   idmateriel integer REFERENCES Materiel(id) not null,
   quantite smallint default 1 check(quantite>0)
 );
+
+CREATE TABLE MargeProduit(
+  id serial primary key,
+  prix_min double precision check(prix_min>0 or prix_min is null),
+  prix_max double precision check(prix_max>prix_min or prix_max is null),
+  marge smallint not null check(marge>=0 and marge<=100)
+);

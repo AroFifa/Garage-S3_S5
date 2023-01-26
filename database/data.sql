@@ -44,3 +44,11 @@ INSERT INTO MaterielUtilise (idservice, idmateriel) VALUES
 (5,11),(5,12),(5,13),
 (6,14),(6,15),(6,16);
 
+INSERT INTO MargeProduit (prix_min,prix_max,marge) VALUES
+(20000,50000,3),
+(50000,null,2)
+(null,1000,50),
+(1000,5000,30),
+(5000,10000,10),
+(10000,20000,5),
+;

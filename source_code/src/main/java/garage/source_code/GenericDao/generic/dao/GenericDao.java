@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenericDao implements InterfaceDAO {
+public class GenericDao {
 
     public String getTableName(Object obj) {
         return Utilitaire.getTablename(obj);
@@ -61,6 +61,18 @@ public class GenericDao implements InterfaceDAO {
         }
     }
 
+
+    public void update(Object obj) throws Exception {
+        ConnectDb con = null;
+        try {
+            con = Utilitaire.getConnection(obj);
+            update(obj, con);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            con.close();
+        }
+    }
     private Object construct_unique(ResultSet rs, Object o) throws Exception {
 
         Object[] value = null;
@@ -377,7 +389,6 @@ public class GenericDao implements InterfaceDAO {
         }
     }
 
-    @Override
     public void save(Object obj) throws Exception {
         ConnectDb con = null;
         try {
@@ -393,42 +404,7 @@ public class GenericDao implements InterfaceDAO {
         }
     }
 
-    @Override
-    public List<Object> findAll(Object obj) throws Throwable {ConnectDb con = null;
-        try {
-            con = Utilitaire.getConnection(obj);
-            return getAll(obj, con);
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            con.close();
-        }
-    }
 
-    @Override
-    public List<Object> find(Object obj) throws Throwable { ConnectDb con = null;
-        try {
-            con = Utilitaire.getConnection(obj);
-            return get(obj, "and", con);
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            con.close();
-        }
-    }
-
-    @Override
-    public Object findById(Object o) throws Throwable {
-        ConnectDb con = null;
-        try {
-            con = Utilitaire.getConnection(o);
-            return getBy_id(o, con);
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            con.close();
-        }
-    }
 
 
     public void save(Object obj, ConnectDb connectdb) throws Exception {
@@ -472,20 +448,7 @@ public class GenericDao implements InterfaceDAO {
         }
     }
 
-    @Override
-    public void update(Object obj) throws Exception {
-        ConnectDb con = null;
-        try {
-            con = Utilitaire.getConnection(obj);
-            update(obj, con);
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            con.close();
-        }
-    }
 
-    @Override
     public void delete(Object obj) throws Exception {
         ConnectDb con = null;
         try {
