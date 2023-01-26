@@ -11,12 +11,13 @@ import garage.source_code.model.Unite;
 import java.util.List;
 
 public class MaterielService {
-    public List<Materiel> getAllMateriel() throws Exception {
+    public Materiel getMateriel(String id) throws Exception {
         GenericDao dao=new GenericDao();
         Materiel m=new Materiel();
+        m.setId(Integer.valueOf(id));
 
         try {
-            return (List)dao.getAll(m);
+            return (Materiel) dao.getBy_id(m);
         } catch (Throwable e) {
             throw e;
         }
