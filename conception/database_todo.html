@@ -5,7 +5,7 @@
 	<title></title>
 	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
 	<meta name="created" content="2023-01-17T16:00:40.041415322"/>
-	<meta name="changed" content="2023-01-26T16:38:14.055870122"/>
+	<meta name="changed" content="2023-01-26T17:32:11.029631315"/>
 	<style type="text/css">
 		@page { size: 8.5in 11in; margin: 0.79in }
 		p { line-height: 115%; margin-bottom: 0.1in; background: transparent; background: transparent }
@@ -259,14 +259,21 @@
 
 </p>
 <h1 class="western">26/01/23</h1>
-<h2 class="western">Table</h2>
+<h2 class="western">Table (20min)</h2>
 <ul>
-	<li><p>MargeProduit</p>
+	<li><p>MargeProduit (5min)</p>
 	<ul>
 		<li><p>id: pk</p>
 		<li><p>prix_min: check prix_min&gt;0 or prix_min is null</p>
 		<li><p>prix_max: check prix_lax &gt; prix_min or prix_min is null</p>
 		<li><p>marge: (not null) check marge&gt;0 and marge&lt;100</p>
+	</ul>
+	<li><p>Données de teste (5min)</p>
+	<li><p>Requête pour prendre la table MargeProduit correspondante à
+	un nombre x (10min)</p>
+	<ul>
+		<li><p>margeProduit.prix_min&lt;x&lt;margeProduit.prix_max</p>
+		<li><p>si une extremité est null prendre inégalité stricte</p>
 	</ul>
 </ul>
 </body>

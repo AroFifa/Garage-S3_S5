@@ -5,7 +5,7 @@
 	<title></title>
 	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
 	<meta name="created" content="2023-01-17T16:00:40.041415322"/>
-	<meta name="changed" content="2023-01-26T16:32:02.940460439"/>
+	<meta name="changed" content="2023-01-26T17:34:10.299487527"/>
 	<style type="text/css">
 		@page { size: 8.5in 11in; margin: 0.79in }
 		p { line-height: 115%; margin-bottom: 0.1in; background: transparent; background: transparent }
@@ -551,7 +551,7 @@
 <h1 class="western">26/01/23</h1>
 <h2 class="western">Classes:</h2>
 <ul>
-	<li><p>MargeProduit</p>
+	<li><p>MargeProduit (5 min)</p>
 	<ul>
 		<li><p>id (pk)</p>
 		<li><p>Double prix_min</p>
@@ -564,7 +564,7 @@
 <br/>
 
 </p>
-<h2 class="western">Fonctions</h2>
+<h2 class="western">Fonctions (30min)</h2>
 <ul>
 	<li><p>Materiel</p>
 	<ul>
@@ -573,29 +573,60 @@
 		données de la table margeproduit</p>
 		<p>don’t :<br/>
 =&gt;getPrixunitaire() &gt;=
-		getMargeProduit().getPrix_min() &amp;&amp; 
-		getPrixunitaire()&lt;=getMargeProduit().getPrix_min()</p>
-		<li><p>getPrixConseille():</p>
+		getMargeProduit().getPrix_min() &amp;&amp;
+		getPrixunitaire()&lt;=getMargeProduit().getPrix_min():</p>
+	</ul>
+	<p>( 20 min)</p>
+	<ul>
+		<li><p>getBenefice(): (5min)</p>
 		<ul>
-			<p>=&gt; getMargeProduit().getMarge() * getPrixunitaire() +
-			getPrixunitaire() 
+			<li><p>=&gt; getPrixunitaire() * getMargeProduit() / 100</p>
+		</ul>
+		<li><p>getPrixConseille(): (5min)</p>
+		<ul>
+			<p>=&gt; getBenefice()+ getPrixunitaire() 
 			</p>
 		</ul>
 	</ul>
 </ul>
-<h2 class="western">Service</h2>
+<h2 class="western">Service (10min)</h2>
 <ul>
 	<li><p>MaterielService</p>
 	<li><p>List&lt;Materiel&gt; getMateriels(): prendre la liste de
-	toutes les matériels de la table ‘Materiel’</p>
+	toutes les matériels de la table ‘Materiel’ (10 min)</p>
+	<li><p><font color="#999999"><span style="background: transparent">Object[
+	] getData( ) : (15 min)</span></font></p>
+	<ul>
+		<li><p><font color="#999999"><span style="background: transparent">[0]:
+		liste des unités</span></font></p>
+		<li><p><font color="#999999"><span style="background: transparent">[1]
+		liste des matériels</span></font></p>
+	</ul>
+	<li><p><font color="#999999"><span style="background: transparent">void
+	createMateriel(String  nom,String prixU, String idunite) (10 min)</span></font></p>
+	<ul>
+		<li><p><font color="#999999"><span style="background: transparent">utiliser
+		constructeur Materiel (String nom,Double prixU, Unite unite)</span></font></p>
+		<li><p><font color="#999999"><span style="background: transparent">utiliser
+		dao.save(Materiel m)</span></font></p>
+	</ul>
 </ul>
-<h2 class="western">Servlet</h2>
+<h2 class="western">Servlet (15min)</h2>
 <ul>
-	<li><p>MaterielC</p>
+	<li><p>MaterielC (15 min)</p>
 	<ul>
 		<li><p>get: redreiction vers la page: materiel</p>
-		<li><p>List&lt;Materiel&gt; materielsMateriel :
-		MaterielService.getMateriesl()</p>
+		<ul>
+			<li><p>List&lt;Materiel&gt; materielsMateriel :
+			MaterielService.getMateriesl()</p>
+			<li><p><font color="#999999">Object[ ] data :
+			MaterielService.getData( )</font> <font color="#999999"> (5 min)</font></p>
+		</ul>
+		<li><p><font color="#999999">post: redirection vers la page
+		materiel (5 min)</font></p>
+		<ul>
+			<li><p><font color="#999999">MaterielService.createMateriel(nom,prixU,idunite)</font></p>
+		</ul>
 	</ul>
 </ul>
 </body>
