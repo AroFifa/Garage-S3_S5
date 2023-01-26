@@ -61,6 +61,18 @@ public class GenericDao {
         }
     }
 
+
+    public void update(Object obj) throws Exception {
+        ConnectDb con = null;
+        try {
+            con = Utilitaire.getConnection(obj);
+            update(obj, con);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            con.close();
+        }
+    }
     private Object construct_unique(ResultSet rs, Object o) throws Exception {
 
         Object[] value = null;

@@ -13,7 +13,27 @@ public class Salaire {
     @Attr(fk = true, column = "idspecialtie")
     Specialite specialite;
 
+    public Specialite getSpecialite() {
+        return specialite;
+    }
+
+    public void setSpecialite(Specialite specialite) {
+        this.specialite = specialite;
+    }
+
     public Salaire() {
+    }
+
+    public Salaire(Integer id,Double montant){
+        setId(id);
+        setMontant(montant);
+    }
+    public Salaire(Double montant, Integer idspecialtie) {
+        setMontant(montant);
+
+        Specialite spec=new Specialite();
+        spec.setId(idspecialtie);
+        setSpecialite(spec);
     }
 
     public Integer getId() {
