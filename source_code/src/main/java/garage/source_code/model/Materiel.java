@@ -52,7 +52,7 @@ public class Materiel {
             GenericDao dao=new GenericDao();
             MargeProduit m=new MargeProduit();
             try {
-                List<MargeProduit> margeProduits=(List)dao.getByQuery(m, "SELECT * FROM margeproduit WHERE ("+getPrixunitaire()+" BETWEEN prix_min AND COALESCE(prix_max, 99999999999)) OR (prix_max IS NULL AND "+getPrixunitaire()+" > prix_min)");
+                List<MargeProduit> margeProduits=(List)dao.getByQuery(m, "SELECT * FROM margeproduit WHERE ("+getPrixunitaire()+"<prix_max and prix_min is null) OR ("+getPrixunitaire()+" BETWEEN prix_min AND COALESCE(prix_max, 99999999999)) OR (prix_max IS NULL AND "+getPrixunitaire()+" > prix_min)");
                 if(margeProduits.size()!=0)
                     return margeProduits.get(0);
             } catch (Throwable e) {
@@ -60,6 +60,17 @@ public class Materiel {
             }
         }
         return margeProduit;
+    }
+
+    public Materiel(String nom, String prixunitaire, String idunite) {
+        setNom(nom);
+        setPrixunitaire(Double.valueOf(prixunitaire));
+
+        Unite u=new Unite();
+        u.setId(Integer.valueOf(idunite));
+
+        setUnite(u);
+
     }
 
     public void setMargeProduit(MargeProduit margeProduit) {

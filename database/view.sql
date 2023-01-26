@@ -98,4 +98,4 @@ join  v_benefice b on s.id=b.idservice
 join v_prix_vente v on s.id=v.idservice;
 
 SELECT * FROM margeproduit
-WHERE (12000 BETWEEN prix_min AND COALESCE(prix_max, 99999999999)) OR (prix_max IS NULL AND 12000 > prix_min)
+WHERE (800<prix_max and prix_min is null) OR (800 BETWEEN prix_min AND COALESCE(prix_max, 99999999999)) OR (prix_max IS NULL AND 800 > prix_min)
